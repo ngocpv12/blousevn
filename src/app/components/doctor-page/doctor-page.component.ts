@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IDoctor } from 'src/app/Entity/doctor';
+import { IDoctor } from 'src/app/entity/doctor';
 import { DoctorService } from 'src/app/Services/doctor.service';
-import { IUser } from 'src/app/Entity/user';
+import { IUser } from 'src/app/entity/user';
 import { SessionService } from 'src/app/Services/session.service';
 import { HospitalService } from 'src/app/Services/hospital.service';
 import { DepartmentService } from 'src/app/Services/department.service';

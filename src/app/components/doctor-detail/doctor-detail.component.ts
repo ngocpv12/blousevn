@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IDoctor } from 'src/app/Entity/doctor';
+import { IDoctor } from 'src/app/entity/doctor';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { SessionService } from 'src/app/Services/session.service';
 import { DoctorService } from 'src/app/Services/doctor.service';

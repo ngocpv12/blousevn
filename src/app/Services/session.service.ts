@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IDoctor } from '../Entity/doctor';
+import { IDoctor } from '../entity/doctor';
 
 @Injectable({
   providedIn: 'root'

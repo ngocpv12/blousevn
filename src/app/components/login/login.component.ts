@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.loggedIn = (user != null);
       this._authenService.loginWithGoogle(user.name, user.email).subscribe((response)=> {
         console.log("login successful" + response);
-        window.location.href = "http://localhost:4202/home";
+        window.location.href = environment.BLOUSEVN + "home";
       });
     });
   }
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit {
         console.log("Login successfully");
         this.loginFailMessage = '';
         this.changeStatus();
-        window.location.href = "http://localhost:4202/home";
+        window.location.href = environment.BLOUSEVN + "home";
       },
         error => {
           this.changeStatus();

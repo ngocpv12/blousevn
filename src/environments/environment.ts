@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   // SERVER_URL: 'http://localhost:3001/'
-  SERVER_URL: 'https://blouse-api.herokuapp.com/'
+  SERVER_URL: 'https://blouse-api.herokuapp.com/',
+  BLOUSEVN: 'https://blousevn.herokuapp.com/'
 };
 
 /*

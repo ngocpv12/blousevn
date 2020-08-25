@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="tabs">
+        <div [ngStyle]="{'border-bottom': currentIndex =='manage-all' ? '5px solid red' : '' }" (click)="showAll()" class="tab">
+            Tất cả
+        </div>
+        <div [ngStyle]="{'border-bottom': currentIndex =='manage-request' ? '5px solid red' : '' }" (click)="showRequest()" class="tab">
+            Chờ xác nhận
+        </div>
+        <div [ngStyle]="{'border-bottom': currentIndex =='manage-confirmed' ? '5px solid red' : '' }" (click)="showConfirmed()" class="tab">
+            Đã xác nhận
+        </div>
+        <div [ngStyle]="{'border-bottom': currentIndex =='manage-schedule' ? '5px solid red' : '' }" (click)="showSchedule()" class="tab">
+            Đã thanh toán
+        </div>
+        <div [ngStyle]="{'border-bottom': currentIndex =='manage-history' ? '5px solid red' : '' }" (click)="showHistory()" class="tab">
+            Đã khám
+        </div>
+        <div [ngStyle]="{'border-bottom': currentIndex =='manage-cancel' ? '5px solid red' : '' }" (click)="showCanceled()" class="tab">
+            Đã hủy
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

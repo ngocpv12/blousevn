@@ -1,0 +1,20 @@
+.tabs{
+    min-width: 900px;
+    min-height: 70px;
+    background-color: rgb(156, 202, 204);
+    margin-top: 180px;
+}
+.tab{
+    padding: 20px;
+    display: inline-block;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 3rem;
+}
+.tab:hover{
+    color: rgb(6, 113, 212);
+}
+.active{
+    border-bottom: 5px solid red;
+}

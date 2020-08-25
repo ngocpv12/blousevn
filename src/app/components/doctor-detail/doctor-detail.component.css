@@ -1,0 +1,38 @@
+.doctor-detail {
+  margin-top: 200px;
+}
+.col-md-6 {
+  border-left: 5px solid #157fda;
+  min-height: 310px;
+  opacity: 0.7;
+}
+
+.rating {
+  margin-left: 15px;
+  min-width: 300px;
+}
+star-rating{
+  width: 100%;
+}
+.fa {
+  font-size: 30px;
+}
+.button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+.button2{
+   margin-left: 3rem;
+}

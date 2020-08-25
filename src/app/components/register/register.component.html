@@ -1,0 +1,25 @@
+<div class="register">
+  <div id="login-box">
+    <div class="left">
+      <h2>Đăng ký tài khoản</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <input  type="text" formControlName="username" placeholder="Tên tài khoản" required>
+      <input type="text" formControlName="email" placeholder="E-mail" required>
+      <input type="password" formControlName="password" placeholder="Mật khẩu" required>
+      <input type="password" formControlName="rePassword" placeholder="nhập lại mật khẩu" required>
+      <input [disabled]="!addForm.valid" type="submit" name="signup_submit" value="Đăng Ký" />
+    </form>
+      
+
+
+    </div>
+
+    <div class="right">
+      <span class="loginwith">Đăng nhập bằng</span>
+
+      <button class="social-signin facebook">Log in with facebook</button>
+      <button class="social-signin google">Log in with Google+</button>
+    </div>
+    <div class="or">OR</div>
+  </div>
+</div>

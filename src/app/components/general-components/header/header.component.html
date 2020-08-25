@@ -1,0 +1,95 @@
+<header>
+  <div class="header-top wow fadeIn">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"
+        ><img src="assets/themes/images/logo2.png" alt="image"
+      /></a>
+      <div class="right-header">
+        <div class="header-info">
+          <div class="info-inner">
+            <span class="icontop"
+              ><img src="assets/themes/images/phone-icon.png" alt="#"
+            /></span>
+            <span class="iconcont"
+              ><a href="tel:978 858 938">012 345 678</a></span
+            >
+          </div>
+          <div class="info-inner">
+            <span class="icontop"
+              ><i class="fa fa-envelope" aria-hidden="true"></i
+            ></span>
+            <span class="iconcont"
+              ><a data-scroll href="mailto:info@yoursite.com"
+                >info@blouse.com</a
+              ></span
+            >
+          </div>
+          <div class="info-inner">
+            <span class="icontop"
+              ><i class="fa fa-clock-o" aria-hidden="true"></i
+            ></span>
+            <span class="iconcont"
+              ><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-bottom wow fadeIn">
+    <div class="container">
+      <nav class="main-menu">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            aria-expanded="false"
+            aria-controls="navbar"
+          >
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a data-scroll [routerLink]="['/home']">Trang chủ</a></li>
+            <li><a data-scroll [routerLink]="['/service']">Dịch vụ</a></li>
+
+            <li><a data-scroll [routerLink]="['/doctor']">Bác sỹ</a></li>
+            <li><a data-scroll [routerLink]="['/schedule']">Đăng ký khám</a></li>
+            <li><a data-scroll [routerLink]="['/contact']">Liên hệ</a></li>
+            <li><a *ngIf="loginStatus == false" id="login" data-scroll [routerLink]="['/login']">Đăng nhập</a></li>
+
+            <li>
+              <div *ngIf="loginStatus == true" class="dropdown">
+                <button
+                  class="btn btn-default dropdown-toggle"
+                  type="button"
+                  id="dropdownMenu1"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                <div class="profile-image">
+                  <img class="image" src="./assets/themes/images/user.png" alt="" />
+                </div>
+                  
+                </button>
+                <ul class="dropdown-menu" >
+                  <li><a [routerLink]="['/profile/profile-info']" >Quản lí hồ sơ cá nhân</a></li>
+                  <li><a [routerLink]="['/profile/account-info']" >Quản lí tài khoản</a></li>
+                  <li><a [routerLink]="['/manage-index/manage-all']" >Quản lí lịch khám</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a (click)="logout()">Đăng xuất</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<app-login hidden (loginStatus)="changeStatus($event)"></app-login>

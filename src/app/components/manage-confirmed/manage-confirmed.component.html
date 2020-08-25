@@ -1,0 +1,53 @@
+<div class="container">
+  <div *ngFor="let medicRequest of listMedicalExamination" class="card">
+    <div class="row">
+      <div class="infoHos col-md-6">Bệnh viện: {{medicRequest.doctor.department.hospital.name}}</div>
+      <div class="status col-md-6">Đã xác nhận</div>
+      <hr style="border-top: 1px solid red; width: 95%;" />
+    </div>
+    
+    <div class="row">
+      <div class="col-md-3">
+        <img
+          src="assets/themes/images/doctor_02.jpg"
+          alt="Avatar"
+          style="width: 50%; padding: 0px 10px;"
+        />
+      </div>
+      <div class="col-md-3">
+        <div class="content">
+          <table>
+            <tr>
+              <td>Bác sĩ:</td>
+              <td>{{medicRequest.doctor.user.fullName}}</td>
+            </tr>
+            <tr>
+              <td>Khoa:</td>
+              <td>{{medicRequest.doctor.department.name}}</td>
+            </tr>
+            <tr>
+              <td>Ngày hẹn:</td>
+              <td>{{medicRequest.appointment.appointmentTime}}</td>
+            </tr>
+            <tr>
+              <td>Tiền Phí:</td>
+              <td style="color: red;">{{medicRequest.paymentHistories[0].amount | currency: 'VND'}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <hr style="border-top: 1px solid gray; width: 95%;" />
+      <div class="button_cancel">
+        <a
+          class="example_a"
+          href="add-website-here"
+          target="_blank"
+          rel="nofollow noopener"
+          >Huỷ Đơn</a
+        >
+      </div>   
+    </div>
+  </div>
+</div>

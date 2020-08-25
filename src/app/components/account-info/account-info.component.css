@@ -1,0 +1,13 @@
+.container{
+    padding: 50px;
+}
+td,input{
+    font-size: 17px;
+    padding: 10px;
+    color: black;
+    font-weight: 600;
+}
+
+input{
+    min-width: 300px;
+}

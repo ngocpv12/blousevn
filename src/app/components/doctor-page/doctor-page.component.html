@@ -1,0 +1,114 @@
+<div class="our-doctor wow fadeIn">
+  <h1>Bác sĩ của Blouse</h1>
+</div>
+<div class="container">
+  <div class="row search-and-filter">
+    <div class="col-md-3">
+      <input
+        class="textSearch"
+        type="text"
+        [(ngModel)]="searchText"
+        placeholder="Nhập tên bác sĩ"
+      />
+    </div>
+    <div class="col-md-3">
+      <label style="color: black;">Chọn bệnh viện </label>
+      <select
+        #selectHospital
+        class="selectHospital"
+        name=""
+        [(ngModel)]="selectedHospital"
+        (ngModelChange)="loadDepartmentByHosId($event)"
+      >
+        <option
+          style="color: black !important;"
+          *ngFor="let hospital of hospitals"
+          [value]="hospital.id"
+          >{{ hospital.name }}</option
+        >
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label style="color: black;">Chọn Khoa </label>
+      <select
+        class="selectDepartment"
+        [disabled]="!selectHospital.value"
+        name=""
+        [(ngModel)]="selectedDepartment"
+      >
+        <option
+          *ngFor="let department of departmentsByHosId"
+          [value]="department.id"
+          >{{ department.name }}</option
+        >
+      </select>
+    </div>
+    <div class="col-md-3">
+      <div class="button_search">
+        <a
+          (click)="
+            searchDoctor(selectedHospital, selectedDepartment, searchText)
+          "
+          class="example_c"
+          target="_blank"
+          rel="nofollow noopener"
+          >Tìm kiếm</a
+        >
+      </div>
+    </div>
+
+    <label style="color: indianred;">{{ notFound }}</label>
+  </div>
+</div>
+
+<div class="container">
+  <hr />
+  <div  class="row" style="margin-top: 100px;">
+    <div
+      class="col-md-3"
+      *ngFor="
+        let doctor of listDoctors
+          | paginate
+            : {
+                id: 'paging-one',
+                itemsPerPage: 8,
+                currentPage: pageIndex,
+                totalItems: totalDoctors
+              }
+      "
+    >
+      <div class="card">
+        <img
+          src="assets/themes/images/doctor_01.jpg"
+          alt="Avatar"
+          style="width: 100%;"
+        />
+        <h4 style="text-align: center; margin-top: 20px;">
+          <b>{{ doctor.user.fullName }}</b>
+        </h4>
+        <p style="text-align: center;">Khoa: {{ doctor.department.name }}</p>
+        <div class="button_detail" align="center">
+          <a
+            class="detailBtn"
+            (click)="onSelect(doctor)"
+            target="_blank"
+            rel="nofollow noopener"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!(listDoctors.length === 0)" class="row paging">
+    <pagination-controls
+      id="paging-one"
+      (pageChange)="pageIndex = $event"
+      maxSize="9"
+      directionLinks="true"
+      responsive="true"
+      previousLabel="Trang trước"
+      nextLabel="Trang sau"
+    >
+    </pagination-controls>
+  </div>
+</div>

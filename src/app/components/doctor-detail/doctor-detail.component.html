@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row doctor-detail">
+    <div class="col-md-3">
+      <img
+        src="assets/themes/images/doctor_02.jpg"
+        alt="Avatar"
+        style="width: 100%;"
+      />
+      <!-- <div class="rating">
+        <span [ngStyle]="{'color': feedbackAvgScore >= 1 ? 'orange' : '' }" class="fa fa-star"></span>
+        <span [ngStyle]="{'color': feedbackAvgScore >= 2 ? 'orange' : '' }" class="fa fa-star"></span>
+        <span [ngStyle]="{'color': feedbackAvgScore >= 3 ? 'orange' : '' }" class="fa fa-star"></span>
+        <span [ngStyle]="{'color': feedbackAvgScore >= 4 ? 'orange' : '' }" class="fa fa-star"></span>
+        <span [ngStyle]="{'color': feedbackAvgScore == 5 ? 'orange' : '' }" class="fa fa-star"></span>
+      </div> -->
+      <div class="rating">
+        <star-rating value="{{feedbackAvgScore}}" checkedcolor="orange"  size="50px" readonly></star-rating>
+      </div>
+     
+    </div>
+    <div class="col-md-6">
+      <div class="infor">
+        <h1 style="border-bottom: 1px solid gainsboro; font-size: 30px; color: dodgerblue;">{{ name }}</h1>
+        <h2>Khoa: {{ departmentName }}</h2>
+        <h2>Bệnh Viện: {{ hospitalName }}</h2>
+        <h2>Kinh Nghiệm: 4 năm trong nghề kể từ năm 2006 tới nay</h2>
+      </div>
+      <div class="buttons">
+        <button class="button " (click)="book()" >Đặt Lịch</button>
+        <button class="button button2" (click)="back()" >Quay Lại</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+.menu-left {
+  background: rgb(0, 175, 240);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 175, 240, 1) 0%,
+    rgba(192, 255, 232, 1) 100%
+  );
+  min-width: 350px;
+  min-height: 800px;
+  margin-top: 200px;
+}
+.profile-image img{
+    position: absolute;
+    justify-content: center;
+}
+.background-profile{
+    background-color: white;
+    border-radius: 50%;
+    width: 50%;
+    min-width: 200px;
+    min-height: 200px;
+}
+.profile {
+    background: url("src/assets/themes/images/user.png") no-repeat center center;
+    height: 200px;
+    width: 200px;
+}
+.profile,.background-profile{
+    margin: auto;
+    margin-top: 20px;
+}
+
+.content-right{
+    opacity: 0.8;
+    background: rgb(240,177,0);
+    background: linear-gradient(180deg, rgba(240,177,0,1) 0%, rgba(255,249,192,1) 100%);
+    min-width: 700px;
+    min-height: 800px;
+    margin-top: 200px;
+}
+
+.vertical-menu a {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid brown;
+}
+

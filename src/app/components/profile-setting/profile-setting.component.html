@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="menu-left col-md-3">
+      <div class="background-profile">
+        <div class="profile">
+        </div>
+      </div>
+      <hr>
+      <div class="vertical-menu">
+          <div class="background-menu-item">
+            <a (click)="showProfileInfo()" >Thông tin cá nhân</a>
+          </div>
+          <div class="background-menu-item">
+            <a (click)="showAccountInfo()">Thông tin tài khoản</a>
+          </div>
+          
+      </div>
+  </div>
+  <div class="content-right col-lg-5">
+    <router-outlet></router-outlet> 
+
+  </div>
+</div>

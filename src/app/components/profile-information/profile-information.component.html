@@ -1,0 +1,64 @@
+
+<div class="container">
+  
+    <table>
+        <tr>
+            <td>Họ tên</td>
+            <td><input type="text" [value]="currentPatient.user.fullName " readonly></td>
+            <td>
+                <a href="#">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </a>
+              </td>
+        </tr>
+        <tr>
+            <td>Giới tính</td>
+            <td><input type="text" [value]="currentPatient.user.gender || 'Chưa có thông tin'" readonly></td>
+            <td>
+                <a href="#">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </a>
+              </td>
+        </tr>
+        <tr>
+            <td>Số điện thoại</td>
+            <td><input type="text" [value]="currentPatient.user.phone || 'Chưa có thông tin'" readonly></td>
+            <td>
+                <a href="#">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </a>
+              </td>
+        </tr>
+        <tr>
+            <td>Ngày tháng năm sinh</td>
+            <td><input type="text" [value]="currentPatient.user.date_of_birth || 'Chưa có thông tin'" readonly></td>
+            <td>
+                <a href="#">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </a>
+              </td>
+        </tr>
+        <tr>
+            <td>Địa chỉ</td>
+            <td><input type="text" [value]="currentPatient.user.address || 'Chưa có thông tin'" readonly></td>
+            <td>
+                <a href="#">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </a>
+              </td>
+        </tr>
+        <tr>
+            <td>Địa chỉ Email</td>
+            <td><input type="text" [value]="currentPatient.user.email || 'Chưa có thông tin'" readonly></td>
+            <td>
+                <a href="#">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </a>
+              </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button>Lưu thay đổi</button></td>
+        </tr>
+    </table>
+</div>

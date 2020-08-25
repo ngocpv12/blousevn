@@ -1,0 +1,110 @@
+<div class="container">
+  <div *ngFor="let medicRequest of listMedicalExamination" class="card">
+    <div class="row">
+      <div class="infoHos col-md-6">Bệnh viện: {{medicRequest.doctor.department.hospital.name}}</div>
+      <div class="status col-md-6">
+        {{ 
+          medicRequest.status === 0 ? "Chờ xác nhận" :
+          medicRequest.status === 1 ? "Đã xác nhận" :
+          medicRequest.status === 2 ? "Đã thanh toán" :
+          medicRequest.status === 3 ? "Đã khám" :
+          medicRequest.status === 4 ? "Đã hủy" : " "
+        }}
+      </div>
+      <hr style="border-top: 1px solid red; width: 95%;" />
+    </div>
+    
+    <div class="row">
+      <div class="col-md-3">
+        <img
+          src="assets/themes/images/doctor_02.jpg"
+          alt="Avatar"
+          style="width: 50%; padding: 0px 10px;"
+        />
+      </div>
+      <div class="col-md-3">
+        <div class="content">
+          <table>
+            <tr>
+              <td>Bác sĩ:</td>
+              <td>{{medicRequest.doctor.user.fullName}}</td>
+            </tr>
+            <tr>
+              <td>Khoa:</td>
+              <td>{{medicRequest.doctor.department.name}}</td>
+            </tr>
+            <tr>
+              <td>Ngày hẹn:</td>
+              <td>{{medicRequest.appointment.appointmentTime}}</td>
+            </tr>
+            <tr>
+              <td>Tiền Phí:</td>
+              <td style="color: red;">{{medicRequest.paymentHistories[0].amount | currency: 'VND'}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <hr style="border-top: 1px solid gray; width: 95%;" />
+      <div class="button_cancel" *ngIf="medicRequest.status === 1">
+        <button
+          class="example_a"
+          (click)="togglePopup(medicRequest)"
+          >Thanh toán
+        </button>
+      </div>
+      <div class="button_cancel" *ngIf="medicRequest.status === 0 || medicRequest.status === 1">
+        <a
+          class="example_a"
+          href="add-website-here"
+          target="_blank"
+          rel="nofollow noopener"
+          >Huỷ Đơn</a
+        >
+      </div>
+      <div class="button_cancel" *ngIf="medicRequest.status === 3">
+        <a
+          class="example_a"
+          href="add-website-here"
+          target="_blank"
+          rel="nofollow noopener"
+          >Đánh giá</a
+        >
+      </div>
+    </div>
+
+    <div class="popup" [id]="popupId + medicRequest.id">
+      <div class="overlay"></div>
+      <div class="content">
+        <!-- <div class="closeBtn" (click)="togglePopup()">&times;</div> -->
+        <div>
+          <!-- style="margin: -28px 25px 0 0;" -->
+          <h1 style="text-align: center; font-weight: bold;">
+            Xác nhận thông tin sau
+          </h1>
+          <div style="color: black; font-weight: 400; margin-top: 20px;">
+            <p *ngIf="medicRequest.doctor">- Bác sĩ: {{ medicRequest.doctor.user.fullName }}</p>
+            <p>- Khoa: {{ medicRequest.doctor.department.name }}</p>
+            <p>- Thời gian khám: {{ medicRequest.appointment.appointmentTime }}</p>
+            <p>- Số tiền cần thanh toán: {{ medicRequest.paymentHistories[0].amount | currency: 'VND' }}</p>
+          </div>
+          <div>
+            <button
+              class="btn btn-info pull-left"
+              (click)="togglePopup(medicRequest)"
+            >
+              Hủy
+            </button>
+            <button
+              class="btn btn-primary pull-right"
+              (click)="getPayment(medicRequest)"
+            >
+              Tiếp tục
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

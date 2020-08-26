@@ -30,8 +30,10 @@ export class LoginComponent implements OnInit {
       this.user = user;
       this.loggedIn = (user != null);
       this._authenService.loginWithGoogle(user.name, user.email).subscribe((response)=> {
-        console.log("login successful" + response);
-        window.location.href = environment.BLOUSEVN + "home";
+        const token = response.headers.get('access_token');
+        this._cookieService.set('access_token', token, 60 * 60 * 1000);
+        // console.log("login successful" + this._cookieService.get('access_token'));
+        window.location.href = "home";
       });
     });
   }
@@ -49,10 +51,14 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this._authenService.login(this.addForm.value)
       .subscribe(response => {
-        console.log("Login successfully");
+        console.log('response', response);
+        
+        const token = response.headers.get('access_token');
+        this._cookieService.set('access_token', token, 60 * 60 * 1000);
+        // console.log("Login successfully", this._cookieService.get('access_token'));
         this.loginFailMessage = '';
         this.changeStatus();
-        window.location.href = environment.BLOUSEVN + "home";
+        window.location.href = "home";
       },
         error => {
           this.changeStatus();

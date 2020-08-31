@@ -4,9 +4,12 @@
 
 export const environment = {
   production: false,
-  // SERVER_URL: 'http://localhost:3001/'
-  SERVER_URL: 'https://blouse-api.herokuapp.com/',
-  BLOUSEVN: 'https://blousevn.herokuapp.com/'
+  // SERVER_URL: 'http://localhost:3001/',
+  // SERVER_URL: 'https://blouse-api.herokuapp.com/',
+  // BLOUSEVN: 'https://blousevn.herokuapp.com/'
+  // BLOUSEVN: 'http://localhost:4202/'
+  SERVER_URL: 'http://ec2-54-169-236-27.ap-southeast-1.compute.amazonaws.com:3001/',
+  BLOUSEVN: 'http://blouse-client.s3-website-ap-southeast-1.amazonaws.com/'
 };
 
 /*

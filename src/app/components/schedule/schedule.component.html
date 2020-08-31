@@ -1,17 +1,17 @@
 <p>schedule works!</p>
-<div class="medical-record wow fadeIn" style="margin-bottom: 40px;">
+<div class="medical-record wow fadeIn" style="margin-bottom: 40px">
   <img
     src="assets/themes/images/schedule.png"
     alt="Avatar"
-    style="width: 25%;"
+    style="width: 25%"
   />
-  <h1 style="font-size: 50px;">Đặt Lịch Khám</h1>
+  <h1 style="font-size: 50px">Đặt Lịch Khám</h1>
 </div>
 
-<div class="container">
+<div class="container" id="blur">
   <div class="select-doctor">
     <h1>I. Chọn bác sĩ.</h1>
-    <p style="color: black; font-weight: 400;">
+    <p style="color: black; font-weight: 400">
       - Tìm kiếm bác sĩ mà bạn muốn theo tên hoặc theo khoa khám trong các bệnh
       viện. Sau đó hãy chọn một bác sĩ mà bạn muốn đặt lịch.
     </p>
@@ -25,7 +25,7 @@
         />
       </div>
       <div class="col-md-3">
-        <label style="color: black;">Chọn bệnh viện </label>
+        <label style="color: black">Chọn bệnh viện </label>
         <select
           #selectHospital
           class="selectHospital"
@@ -34,15 +34,16 @@
           (ngModelChange)="loadDepartmentByHosId($event)"
         >
           <option
-            style="color: black !important;"
+            style="color: black !important"
             *ngFor="let hospital of hospitals"
             [value]="hospital.id"
-            >{{ hospital.name }}</option
           >
+            {{ hospital.name }}
+          </option>
         </select>
       </div>
       <div class="col-md-3">
-        <label style="color: black;">Chọn Khoa </label>
+        <label style="color: black">Chọn Khoa </label>
         <select
           class="selectDepartment"
           [disabled]="!selectHospital.value"
@@ -52,8 +53,9 @@
           <option
             *ngFor="let department of departmentsByHosId"
             [value]="department.id"
-            >{{ department.name }}</option
           >
+            {{ department.name }}
+          </option>
         </select>
       </div>
       <div class="col-md-3">
@@ -71,29 +73,34 @@
       </div>
     </div>
     <div class="row">
-      <label *ngIf="listDoctors.length === 0" style="color: indianred;">{{ notFound }}</label>
-      <label *ngIf="!selectedIdDoctor" style="color: indianred;">{{ doctorRequired }}</label>
+      <label *ngIf="listDoctors.length === 0" style="color: indianred">{{
+        notFound
+      }}</label>
+      <label *ngIf="!selectedIdDoctor" style="color: indianred">{{
+        doctorRequired
+      }}</label>
     </div>
     <div class="container">
       <hr />
-      <div class="row" style="margin-top: 100px;">
+      <div class="row" style="margin-top: 100px">
         <div class="col-md-3" *ngFor="let doctor of listDoctors">
           <div class="card">
             <img
               src="assets/themes/images/doctor_01.jpg"
               alt="Avatar"
-              style="width: 100%;"
+              style="width: 100%"
             />
-            <h4 style="text-align: center; margin-top: 20px;">
+            <h4 style="text-align: center; margin-top: 20px">
               <b>{{ doctor.user.fullName }}</b>
             </h4>
-            <p style="text-align: center;">
-              Khoa: {{ doctor.department.name }}
-            </p>
+            <p style="text-align: center">Khoa: {{ doctor.department.name }}</p>
             <div class="button_detail" align="center">
               <a
                 class="bookBtn"
-                (click)="selectedDoctor = doctor.user.fullName;  selectedIdDoctor = doctor.id"
+                (click)="
+                  selectedDoctor = doctor.user.fullName;
+                  selectedIdDoctor = doctor.id
+                "
                 target="_blank"
                 rel="nofollow noopener"
                 >Đặt lịch</a
@@ -106,18 +113,18 @@
 
     <p
       [hidden]="!selectedIdDoctor"
-      style="color: black; font-weight: 400; margin-top: 20px;"
+      style="color: black; font-weight: 400; margin-top: 20px"
     >
       Bạn đã đặt lịch với bác sĩ: {{ selectedDoctor }}
     </p>
   </div>
   <div class="time-picker">
     <h1>II. Chọn thời gian.</h1>
-    <p style="color: black; font-weight: 400;">
+    <p style="color: black; font-weight: 400">
       - Hãy chọn ngày mà bạn muốn được tư vấn. Nhân viên của chúng tôi sẽ gửi
       lại cho bạn lịch khám chi tiết.
     </p>
-    <label style="color: coral; font-weight: 600;">Chọn ngày khám</label><br />
+    <label style="color: coral; font-weight: 600">Chọn ngày khám</label><br />
     <input
       #date
       type="date"
@@ -129,87 +136,43 @@
   <div class="row">
     <p
       [hidden]="!date.value"
-      style="color: black; font-weight: 400; margin-top: 20px;"
+      style="color: black; font-weight: 400; margin-top: 20px"
     >
       Bạn đã đặt lịch khám vào ngày: {{ datePicker }}
     </p>
-    <label style="color: indianred;">{{ dateRequired }}</label>
+    <label *ngIf="!date.value" style="color: indianred">{{ dateRequired }}</label>
   </div>
-  <div class="button_confirm" align="center">
-    <button
-    type="submit"
-    *ngIf="selectedIdDoctor && date.value"
-    class="confirmBtn"
-    target="_blank"
-    (click)="togglePopup()"
-    rel="nofollow noopener"
-  >
-    Xác nhận
-  </button>
-    <button
-      type="submit"
-      *ngIf="!selectedIdDoctor || !date.value"
-      class="confirmBtn"
-      target="_blank"
-      (click)="displayError()"
-      rel="nofollow noopener"
+  
+  <button *ngIf="!selectedIdDoctor || !date.value" (click)="displayError()" class="buttonSubmit" id="buttonSubmit"> xác nhận</button>
+  <button *ngIf="selectedIdDoctor && date.value" (click)="toggle()" class="buttonSubmit" id="buttonSubmit"> xác nhận</button>
+</div>
+<div id="popup">
+  <h2>Xác nhận thông tin</h2>
+  <p style="color: black; font-weight: 400; margin-top: 20px">
+    I. Bác sĩ lựa chọn <br />
+    - Bác sĩ: {{ selectedDoctor }} <br />
+    II. Thời gian lựa chọn <br />
+    - Thời gian khám: {{ datePicker }} <br />
+    <label style="color: crimson; font-weight: bold"
+      >*Khi nhấn xác nhận, bạn sẽ gửi một yêu cầu khám đến cho chúng
+      tôi. Sau khi tiếp nhận yêu cầu khám chúng tôi sẽ gửi bạn lịch
+      khám chi tiết cũng như những yêu cầu về thanh toán</label
     >
-      Xác nhận
-    </button>
-  </div>
-  <div class="popup" id="popup-1">
-    <div class="overlay"></div>
-    <div class="content">
-      <div class="closeBtn" (click)="togglePopup()">&times;</div>
-      <div></div>
-      <h1 style="text-align: center; font-weight: bold;">
-        Xác nhận thông tin sau
-      </h1>
-      <p style="color: black; font-weight: 400; margin-top: 20px;">
-        I. Bác sĩ lựa chọn <br />
-        - Bác sĩ: {{ selectedDoctor }} <br />
-        II. Thời gian lựa chọn <br />
-        - Thời gian khám: {{ datePicker }} <br />
-        <label style="color: crimson; font-weight: bold;"
-          >*Khi nhấn xác nhận, bạn sẽ gửi một yêu cầu khám đến cho chúng tôi. Sau khi tiếp nhận yêu cầu khám chúng tôi sẽ gửi bạn lịch khám chi tiết cũng như những yêu cầu về thanh toán</label
-        >
-      </p>
-      <div class="button_confirm" align="center">
-        <button
-          type="submit"
-          class="confirmBtn"
-          target="_blank"
-          (click)="sendRequest(selectedIdDoctor, datePicker)"
-          rel="nofollow noopener"
-        >
-          Gửi yêu cầu
-        </button>
-      </div>
-    </div>
-  </div>
+  </p>
+  <button (click)="sendRequest(selectedIdDoctor, datePicker)" class="buttonSubmit" id="sendRequest">Gửi yêu cầu</button>
+</div>
+<div id="popup2">
+  <h2>    {{
+    noticeRequestSuccess == true
+      ? "Gửi yêu cầu thành công"
+      : "Đang xử lí yêu cầu"
+  }}
+  {{
+    noticeRequestFail == true
+      ? "Gửi yêu cầu thất bại! Đã có lỗi xảy ra"
+      : "Đang xử lí yêu cầu"
+  }}</h2>
 
-
-  <div class="popup" id="popup-2">
-    <div class="overlay"></div>
-    <div class="content">
-      <div></div>
-      <h1 style="text-align: center; font-weight: bold;">
-        Gửi yêu cầu thành công
-      </h1>
-      <p style="color: black; font-weight: 400; margin-top: 20px;">
-        Yêu cầu của bạn đã được gửi đi. Chúng tôi sẽ phản hồi cho bạn sớm nhất.
-      </p>
-      <div class="button_confirm" align="center">
-        <button
-          type="submit"
-          class="confirmBtn"
-          target="_blank"
-          [routerLink]="['/manage-index/manage-request']"
-          rel="nofollow noopener"
-        >
-          Quản lí yêu cầu
-        </button>
-      </div>
-    </div>
-  </div>
+  <button *ngIf="noticeRequestSuccess == true" [routerLink]="['/manage-index/manage-request']" routerLinkActive="router-link-active"  class="buttonSubmit" id="sendRequest">Quản lí yêu cầu khám</button>
+  <button *ngIf="noticeRequestSuccess == false" [routerLink]="['/schedule']" routerLinkActive="router-link-active"  class="buttonSubmit" id="sendRequest">Quay lại</button>
 </div>

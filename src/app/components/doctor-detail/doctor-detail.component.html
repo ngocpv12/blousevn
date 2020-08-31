@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" id="blur">
   <div class="row doctor-detail">
     <div class="col-md-3">
       <img
         src="assets/themes/images/doctor_02.jpg"
         alt="Avatar"
-        style="width: 100%;"
+        style="width: 100%"
       />
       <!-- <div class="rating">
         <span [ngStyle]="{'color': feedbackAvgScore >= 1 ? 'orange' : '' }" class="fa fa-star"></span>
@@ -14,21 +14,117 @@
         <span [ngStyle]="{'color': feedbackAvgScore == 5 ? 'orange' : '' }" class="fa fa-star"></span>
       </div> -->
       <div class="rating">
-        <star-rating value="{{feedbackAvgScore}}" checkedcolor="orange"  size="50px" readonly></star-rating>
+        <star-rating
+          value="{{ feedbackAvgScore }}"
+          checkedcolor="orange"
+          size="50px"
+          readonly
+        ></star-rating>
       </div>
-     
     </div>
     <div class="col-md-6">
       <div class="infor">
-        <h1 style="border-bottom: 1px solid gainsboro; font-size: 30px; color: dodgerblue;">{{ name }}</h1>
+        <h1
+          style="
+            border-bottom: 1px solid gainsboro;
+            font-size: 30px;
+            color: dodgerblue;
+          "
+        >
+          {{ name }}
+        </h1>
         <h2>Khoa: {{ departmentName }}</h2>
         <h2>Bệnh Viện: {{ hospitalName }}</h2>
         <h2>Kinh Nghiệm: 4 năm trong nghề kể từ năm 2006 tới nay</h2>
       </div>
       <div class="buttons">
-        <button class="button " (click)="book()" >Đặt Lịch</button>
-        <button class="button button2" (click)="back()" >Quay Lại</button>
+        <button class="button" (click)="toggle()">Đặt Lịch</button>
+        <button class="button button2" (click)="back()">Quay Lại</button>
       </div>
     </div>
   </div>
+</div>
+<div id="popup">
+  <h2>Xác nhận thông tin</h2>
+  <p style="color: black; font-weight: 400; margin-top: 20px">
+    I. Bác sĩ lựa chọn <br />
+    - Bác sĩ: {{ name }} <br />
+    II. Thời gian lựa chọn <br />
+    <input
+      #date
+      type="date"
+      class="datepicker"
+      [(ngModel)]="datePicker"
+      required
+    />
+    <br />
+  </p>
+  <p
+    [hidden]="!date.value"
+    style="color: black; font-weight: 400; margin-top: 20px"
+  >
+    Bạn đã đặt lịch khám vào ngày: {{ datePicker }}
+  </p>
+  <label *ngIf="!date.value" style="color: indianred">{{ dateRequired }}</label>
+  <label style="color: crimson; font-weight: bold"
+    >*Khi nhấn xác nhận, bạn sẽ gửi một yêu cầu khám đến cho chúng tôi. Sau khi
+    tiếp nhận yêu cầu khám chúng tôi sẽ gửi bạn lịch khám chi tiết cũng như
+    những yêu cầu về thanh toán</label
+  >
+  <button
+    (click)="sendRequest(doctorId, datePicker)"
+    *ngIf="datePicker"
+    class="buttonSubmit"
+    id="sendRequest"
+  >
+    Gửi yêu cầu
+  </button>
+  <button
+  (click)="displayError()"
+    class="buttonSubmit"
+    id="sendRequest"
+    *ngIf="!datePicker"
+  >
+    Gửi yêu cầu
+  </button>
+  <button class="buttonSubmit" id="cancel" (click)="toggle()">Quay lại</button>
+</div>
+
+<div id="popup2">
+  <h2 *ngIf="!noticeRequestSuccess && !noticeRequestFail && !noticeRequestExisted "> Đang xử lí yêu cầu</h2>
+  <h2>
+    {{
+      noticeRequestSuccess == true
+        ? "Gửi yêu cầu thành công"
+        : ""
+    }}
+    {{
+      noticeRequestFail == true
+        ? "Gửi yêu cầu thất bại"
+        : ""
+    }}
+    {{
+      noticeRequestExisted == true
+        ? "Bạn đã gửi yêu cầu cho bác sĩ ":"" }} {{name}} {{" vào thời gian "}}{{datePicker}}{{" rồi"
+    }}
+  </h2>
+
+  <button
+    *ngIf="noticeRequestSuccess == true"
+    [routerLink]="['/manage-index/manage-request']"
+    routerLinkActive="router-link-active"
+    class="buttonSubmit"
+    id="sendRequest"
+  >
+    Quản lí yêu cầu khám
+  </button>
+  <button
+    *ngIf="noticeRequestSuccess == false"
+    (click)="toggle2()"
+    routerLinkActive="router-link-active"
+    class="buttonSubmit"
+    id="cancel"
+  >
+    Quay lại
+  </button>
 </div>

@@ -11,7 +11,7 @@
               ><img src="assets/themes/images/phone-icon.png" alt="#"
             /></span>
             <span class="iconcont"
-              ><a href="tel:978 858 938">012 345 678</a></span
+              ><a>012 345 678</a></span
             >
           </div>
           <div class="info-inner">
@@ -19,7 +19,7 @@
               ><i class="fa fa-envelope" aria-hidden="true"></i
             ></span>
             <span class="iconcont"
-              ><a data-scroll href="mailto:info@yoursite.com"
+              ><a data-scroll
                 >info@blouse.com</a
               ></span
             >
@@ -29,7 +29,7 @@
               ><i class="fa fa-clock-o" aria-hidden="true"></i
             ></span>
             <span class="iconcont"
-              ><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span
+              ><a data-scroll>Daily: 7:00am - 8:00pm</a></span
             >
           </div>
         </div>
@@ -60,6 +60,7 @@
             <li><a data-scroll [routerLink]="['/doctor']">Bác sỹ</a></li>
             <li><a data-scroll [routerLink]="['/schedule']">Đăng ký khám</a></li>
             <li><a data-scroll [routerLink]="['/contact']">Liên hệ</a></li>
+            <li><a data-scroll [routerLink]="['/news']">Tin tức</a></li>
             <li><a *ngIf="loginStatus == false" id="login" data-scroll [routerLink]="['/login']">Đăng nhập</a></li>
 
             <li>

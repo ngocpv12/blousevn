@@ -30,7 +30,7 @@
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "src/assets/themes/js/all.js",
+              "./assets/themes/js/all.js",
               "src/assets/themes/js/custom.js",
               "src/assets/themes/js/modernizer.js"
             ]

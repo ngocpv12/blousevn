@@ -22,6 +22,7 @@ import {
 } from 'angularx-social-login';
 
 
+
 const google_oauth_client_id = "591562531176-u1out3el8d87a4tt13ft26tnob9mfrgm.apps.googleusercontent.com";
 
 const fbLoginOptions = {

@@ -37,7 +37,8 @@ export class ScheduleComponent implements OnInit {
   toggleForm: boolean = false;
 
   // message to notice request success
-  noticeRequestMessage: string;
+  noticeRequestSuccess: boolean = false;
+  noticeRequestFail: boolean = false;
   constructor(
     private fb: FormBuilder,
     private _doctorServices: DoctorService,
@@ -89,7 +90,6 @@ export class ScheduleComponent implements OnInit {
       );
       
     this.doctorRequired = "";
-    this.dateRequired = "";
   }
   clearInput = () => {
     this.searchText = '';
@@ -116,16 +116,7 @@ export class ScheduleComponent implements OnInit {
       });
   }
 
-  togglePopup() {
-    document.getElementById("popup-1").classList.toggle("active");
-    this.doctorRequired = "";
-    this.dateRequired = "";
-  }
-  togglePopup2() {
-    document.getElementById("popup-2").classList.toggle("active");
-    this.doctorRequired = "";
-    this.dateRequired = "";
-  }
+
   displayError() {
     console.log("I am displaying error!");
     this.notFound = "";
@@ -140,16 +131,36 @@ export class ScheduleComponent implements OnInit {
     console.log(this.selectedDoctor);
     console.log(this.datePicker);
   }
+  toggle(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
 
+    var popup = document.getElementById('popup');
+    popup.classList.toggle('active');
+
+
+    this.doctorRequired = "";
+    this.dateRequired = "";
+  }
+
+  toggle2(){
+
+    var popup2 = document.getElementById('popup2');
+    popup2.classList.toggle('active');
+  }
   sendRequest(doctorId, date) {
     this._examination.requestExamination(doctorId, date)
       .subscribe(response => {
         console.log("Gui yeu cau thanh cong", response);
-        this.noticeRequestMessage = "Bạn đã gửi yêu cầu khám thành công!";
+        this.noticeRequestSuccess = true;
+        this.noticeRequestFail = false;
       },
         err => {
           console.log(err);
+          this.noticeRequestSuccess = false;
+          this.noticeRequestFail = true;
         });
-    this.togglePopup2();
+    this.toggle();
+    this.toggle2();
   }
 }

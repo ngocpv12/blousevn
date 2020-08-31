@@ -57,5 +57,8 @@ export class DoctorService {
       .pipe(catchError(this.errorHandler));
   }
 
-
+  loadThreeDoctor(){
+    return this._http.get<IDoctor[]>(this._url + "/top-three")
+    .pipe(catchError(this.errorHandler));
+  }
 }

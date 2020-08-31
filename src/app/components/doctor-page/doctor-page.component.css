@@ -1,3 +1,7 @@
+.content{
+  background: rgb(33,147,176);
+background: linear-gradient(180deg, rgba(33,147,176,1) 0%, rgba(109,213,237,1) 100%);
+}
 .our-doctor {
   width: 100%;
   background: linear-gradient(to right, #1d86df 0%, #39b49a 100%);

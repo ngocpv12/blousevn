@@ -11,6 +11,7 @@
   min-height: 100px;
   background-color: bisque;
   margin-top: 20px;
+
 }
 
 .card:hover {
@@ -54,70 +55,38 @@ table tr td{
     padding: 0px 5px;
 }
 
-.popup .overlay {
-  position:fixed;
-  top:0px;
-  left:0px;
-  width:100vw;
-  height:100vh;
-  background:rgba(0,0,0,0.7);
-  z-index:1;
-  display:none;
+.popup
+{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 2;
+}
+.popup.active
+{   
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+.buttonSubmit{
+  text-transform: uppercase;
+  position: relative;
+  padding: 10px 30px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 2rem;
 }
 
-.popup .content {
-  margin-top: 800px;
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%) scale(0);
-  background:#fff;
-  width:700px;
-  height:290px;
-  z-index:2;
-  padding:20px;
-  box-sizing:border-box;
-  font-family:"Open Sans",sans-serif;
-}
-
-.popup .close-btn {
-  cursor:pointer;
-  position:absolute;
-  right:20px;
-  top:20px;
-  width:30px;
-  height:30px;
-  background:#222;
-  color:#fff;
-  font-size:25px;
-  font-weight:600;
-  line-height:30px;
-  text-align:center;
-  border-radius:50%;
-}
-
-.popup.active .overlay {
-  display:block;
-}
-
-.popup.active .content {
-  transition:all 300ms ease-in-out;
-  transform:translate(-50%,-50%) scale(1);
-}
-
-.closeBtn{
-  /* margin-top: -10px; */
-  margin-left: 630px;
-  cursor:pointer;
-  right:30px;
-  top:20px;
-  width:30px;
-  height:30px;
-  background:#222;
-  color:#fff;
-  font-size:25px;
-  font-weight:600;
-  line-height:30px;
-  text-align:center;
-  border-radius:50%;
+.buttonSubmit#cancel{
+  background: #434343;
 }

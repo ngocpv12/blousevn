@@ -23,6 +23,7 @@ import { ManageAllScheduleComponent } from '../components/manage-all-schedule/ma
 import { ManageCancelComponent } from '../components/manage-cancel/manage-cancel.component';
 import { RegisterPendingComponent } from '../components/register-pending/register-pending.component';
 import { PaymentNotifyComponent } from './../components/payment-notify/payment-notify.component';
+import { NewsComponent } from '../components/news/news.component';
 
 const routes: Routes = [
   {
@@ -134,6 +135,10 @@ const routes: Routes = [
     component: PaymentNotifyComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'news',
+    component: NewsComponent
+  },
   { 
     path:'**', 
     component: PageNotFoundComponent 
@@ -167,5 +172,6 @@ export const routingComponents = [
   ManageAllScheduleComponent,
   ManageCancelComponent,
   ManageConfirmedComponent,
-  RegisterPendingComponent
+  RegisterPendingComponent,
+  NewsComponent
 ];

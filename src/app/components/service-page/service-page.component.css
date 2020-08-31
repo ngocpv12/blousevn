@@ -1,49 +1,51 @@
 .our-services {
-    width: 100%;
-    background: linear-gradient(to right, #1d86df 0%, #39b49a 100%);
-    padding: 75px 0;
+  width: 100%;
+  background: linear-gradient(to right, #1d86df 0%, #39b49a 100%);
+  padding: 75px 0;
 }
 .our-services {
-    width: 100%;
-    background: url('src/assets/themes/images/services-background.jpg');
-    padding: 75px 0;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-	float:left;
-	height: 600px;
+  width: 100%;
+  background: url("src/assets/themes/images/services-background.jpg");
+  padding: 75px 0;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  float: left;
+  height: 600px;
 }
-.our-services h1{
-    margin-top: 280px;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 600px; 
-    font-size: 40px;
-    color: whitesmoke;
+.our-services h1 {
+  margin-top: 280px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 600px;
+  font-size: 40px;
+  color: whitesmoke;
 }
-.first-service{
-    height: 1000px;
-
+.first-service {
+  height: 1000px;
 }
-.col-md-7{
-    margin-top: 200px;
+.clinic_version {
 }
-.col-md-5{
-    margin-top: 100px;
-    background: url('src/assets/themes/images/service-1.jpg');
-    height: 300px;
+.col-md-7 {
+  margin-top: 200px;
 }
-.second-service{
-
-    height: 500px;
-
+.col-md-5 {
+  margin-top: 100px;
+  background: url("src/assets/themes/images/service-1.jpg");
+  height: 300px;
 }
-.third-service{
-    height: 500px;
-    background: rgb(66,197,220);
-background: linear-gradient(180deg, rgba(66,197,220,1) 2%, rgba(255,255,255,1) 100%);
+.second-service {
+  height: 500px;
 }
-.row{
-    margin-top: 700px;
-    
+.third-service {
+  height: 500px;
+  background: rgb(66, 197, 220);
+  background: linear-gradient(
+    180deg,
+    rgba(66, 197, 220, 1) 2%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+.row {
+  margin-top: 700px;
 }

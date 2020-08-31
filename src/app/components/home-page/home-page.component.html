@@ -55,7 +55,7 @@
           <span class="info-icon"
             ><i class="fa fa-clock-o" aria-hidden="true"></i
           ></span>
-          <h3>Thời Gian Làm Việc</h3>
+          <h3>Đăng ký khám bệnh</h3>
           <div class="time-table-section">
             <ul>
               <li>
@@ -65,11 +65,8 @@
               <li>
                 <span class="left">Thứ 7</span><span class="right">24/24</span>
               </li>
-              <li>
-                <span class="left">Chủ Nhật</span
-                ><span class="right">24/24</span>
-              </li>
             </ul>
+            <button [routerLink]="['/schedule']">Đăng ký khám</button>
           </div>
         </div>
       </div>
@@ -80,11 +77,11 @@
           <span class="info-icon"
             ><i class="fa fa-hospital-o" aria-hidden="true"></i
           ></span>
-          <h3>Tin tức và sự kiện</h3>
+          <h3>Dịch vụ</h3>
           <p>
-            Cập nhật những thông tin về y tế. Những khuyến mãi hàng tháng.
+            Cho bạn cái nhìn tổng quan về những gì chúng tôi đang làm.
           </p>
-          <button>Tìm hiểu thêm</button>
+          <button [routerLink]="['/service']">Tìm hiểu thêm</button>
         </div>
       </div>
     </div>
@@ -269,66 +266,6 @@
           </p>
           <div class="button_detail" align="center">
             <a class="detailBtn" target="_blank" rel="nofollow noopener" 
-              >Chi tiết</a
-            >
-          </div>
-        </div>
-        <!--widget -->
-      </div>
-      <!-- end col -->
-
-      <div
-        class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn"
-        data-wow-duration="1s"
-        data-wow-delay="0.4s"
-        style="
-          visibility: visible;
-          animation-duration: 1s;
-          animation-delay: 0.4s;
-          animation-name: fadeIn;
-        "
-      >
-        <div class="widget clearfix">
-          <img
-            src="assets/themes/images/doctor_02.jpg"
-            alt=""
-            class="img-responsive img-rounded"
-          />
-          <div class="widget-title">
-            <h3>Ninh Quang Hợp</h3>
-            <small>Challenge I - Synth</small>
-          </div>
-          <!-- end title -->
-          <p>
-            Người chơi Riven đỉnh nhất Đông Nam Á.
-          </p>
-          <div class="button_detail" align="center">
-            <a class="detailBtn" target="_blank" rel="nofollow noopener"
-              >Chi tiết</a
-            >
-          </div>
-        </div>
-        <!--widget -->
-      </div>
-      <!-- end col -->
-
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn">
-        <div class="widget clearfix">
-          <img
-            src="assets/themes/images/doctor_03.jpg"
-            alt=""
-            class="img-responsive img-rounded"
-          />
-          <div class="widget-title">
-            <h3>Phạm Văn Ngọc</h3>
-            <small>Tech Leader</small>
-          </div>
-          <!-- end title -->
-          <p>
-            Nhỏ nhưng có võ
-          </p>
-          <div class="button_detail" align="center">
-            <a class="detailBtn" target="_blank" rel="nofollow noopener"
               >Chi tiết</a
             >
           </div>

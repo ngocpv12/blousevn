@@ -36,3 +36,54 @@ star-rating{
 .button2{
    margin-left: 3rem;
 }
+
+#popup, #popup2
+{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 2;
+}
+#popup.active, #popup2.active 
+{   
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+.container{
+  position: relative;
+}
+.container#blur.active{
+  filter: blur(1px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.buttonSubmit{
+  text-transform: uppercase;
+  position: relative;
+  padding: 10px 30px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 2rem;
+}
+.buttonSubmit#buttonSubmit{
+  margin-left: 45%;
+}
+.buttonSubmit#sendRequest{
+  margin-left: 20%;
+  background: #ed3330;
+}
+.buttonSubmit#cancel{
+  background: #434343;
+}

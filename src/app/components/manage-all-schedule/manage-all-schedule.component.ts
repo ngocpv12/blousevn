@@ -43,4 +43,5 @@ export class ManageAllScheduleComponent implements OnInit {
   togglePopup = (exam) => {
     document.getElementById("popup-" + exam.id).classList.toggle("active");
   }
+
 }

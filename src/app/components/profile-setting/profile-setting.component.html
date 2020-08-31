@@ -1,22 +1,38 @@
 <div class="container">
   <div class="menu-left col-md-3">
-      <div class="background-profile">
-        <div class="profile">
+    <div class="background-profile">
+      <div class="profile">
+        <div class="tooltipp">
+          <button class="changeAvt">
+            <i  onclick="document.getElementById('selectedFile').click();" class="glyphicon glyphicon-camera" aria-hidden="true"></i>
+            <input type="file" id="selectedFile" [(ngModel)]="selectedFile" style="display: none;" (change)="uploadImage(selectedFile)"/>
+          </button>
+          <p
+            class="tooltiptext"
+            style="
+              color: black;
+              font-weight: 400;
+              position: absolute;
+              background-color: bisque;
+              padding: 3px;
+            "
+          >
+            Bấm để đổi ảnh đại diện
+          </p>
         </div>
       </div>
-      <hr>
-      <div class="vertical-menu">
-          <div class="background-menu-item">
-            <a (click)="showProfileInfo()" >Thông tin cá nhân</a>
-          </div>
-          <div class="background-menu-item">
-            <a (click)="showAccountInfo()">Thông tin tài khoản</a>
-          </div>
-          
+    </div>
+    <hr />
+    <div class="vertical-menu">
+      <div class="background-menu-item">
+        <a (click)="showProfileInfo()">Thông tin cá nhân</a>
       </div>
+      <div class="background-menu-item">
+        <a (click)="showAccountInfo()">Thông tin tài khoản</a>
+      </div>
+    </div>
   </div>
   <div class="content-right col-lg-5">
-    <router-outlet></router-outlet> 
-
+    <router-outlet></router-outlet>
   </div>
 </div>

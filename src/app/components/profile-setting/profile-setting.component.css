@@ -9,42 +9,77 @@
   min-height: 800px;
   margin-top: 200px;
 }
-.profile-image img{
-    position: absolute;
-    justify-content: center;
+.profile-image img {
+  position: absolute;
+  justify-content: center;
 }
-.background-profile{
-    background-color: white;
-    border-radius: 50%;
-    width: 50%;
-    min-width: 200px;
-    min-height: 200px;
+.background-profile {
+  background-color: white;
+  border-radius: 50%;
+  width: 50%;
+  min-width: 200px;
+  min-height: 200px;
 }
 .profile {
-    background: url("src/assets/themes/images/user.png") no-repeat center center;
-    height: 200px;
-    width: 200px;
+  background: url("src/assets/themes/images/user.png") no-repeat center center;
+  height: 200px;
+  width: 200px;
 }
-.profile,.background-profile{
-    margin: auto;
-    margin-top: 20px;
+.profile,
+.background-profile {
+  margin: auto;
+  margin-top: 20px;
 }
 
-.content-right{
-    opacity: 0.8;
-    background: rgb(240,177,0);
-    background: linear-gradient(180deg, rgba(240,177,0,1) 0%, rgba(255,249,192,1) 100%);
-    min-width: 700px;
-    min-height: 800px;
-    margin-top: 200px;
+.content-right {
+  opacity: 0.8;
+  background: rgb(240, 177, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(240, 177, 0, 1) 0%,
+    rgba(255, 249, 192, 1) 100%
+  );
+  min-width: 700px;
+  min-height: 800px;
+  margin-top: 200px;
 }
 
 .vertical-menu a {
-    font-size: 20px;
-    font-weight: bold;
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-bottom: 1px solid brown;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-bottom: 1px solid brown;
+}
+.profile {
+  position: relative;
+}
+.changeAvt {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.tooltipp {
+
+  display: inline-block;
+  border-bottom: 1px dotted black;
 }
 
+.tooltipp .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltipp:hover .tooltiptext {
+  visibility: visible;
+}

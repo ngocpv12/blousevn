@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-profile-setting',
@@ -8,8 +9,12 @@ import { Route } from '@angular/compiler/src/core';
   styleUrls: ['./profile-setting.component.css']
 })
 export class ProfileSettingComponent implements OnInit {
-
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  selectedFile;
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router,
+    private userService: UserService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -19,5 +24,13 @@ export class ProfileSettingComponent implements OnInit {
   showAccountInfo(){
     this.router.navigate(['account-info'], {relativeTo: this.route});
 
+  }
+  uploadImage(fileImage){
+    console.log("uploading image");
+    this.userService.uploadImage(fileImage)
+      .subscribe(response => {
+        console.log(response);
+      
+      });
   }
 }
